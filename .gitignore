@@ -17,4 +17,4 @@
 /tmp
 
 # Ignore tag file
-./tag
+/tags

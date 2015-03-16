@@ -2,11 +2,6 @@ class CartsController < ApplicationController
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
 
 	rescue_from ActiveRecord::RecordNotFound , with: :invalid_cart
-	private
-		def invalid_cart
-			logger.error("the cart id #{params[:id]} is invalid")
-			redirect_to store_url, notice:"invalid cart" 
-		end
 
   # GET /carts
   # GET /carts.json
@@ -80,4 +75,10 @@ class CartsController < ApplicationController
     def cart_params
       params[:cart]
     end
+
+    # Handle invalid cart id error.
+    def invalid_cart
+			logger.error("the cart id #{params[:id]} is invalid")
+			redirect_to store_url, notice:"invalid cart" 
+		end
 end
