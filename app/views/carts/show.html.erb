@@ -9,6 +9,7 @@
   <% @cart.line_items.each do |item| %>
 <!-- START_HIGHLIGHT -->
     <tr>
+      <td><%= image_tag(item.product.image_url, class: 'list_image', size: '150x50') %></td>
       <td><%= item.quantity %>&times;</td>
       <td><%= item.product.title %></td>
       <td class="item_price"><%= number_to_currency(item.total_price) %></td>
@@ -18,7 +19,7 @@
 
 <!-- START_HIGHLIGHT -->
   <tr class="total_line">
-    <td colspan="2">Total</td>
+    <td colspan="3">Total</td>
     <td class="total_cell"><%= number_to_currency(@cart.total_price) %></td>
   </tr>
 <!-- END_HIGHLIGHT -->
